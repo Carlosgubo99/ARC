@@ -1,3 +1,4 @@
+package Cliente;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -25,7 +26,7 @@ class Persona extends Thread {
     @Override
     public void run() {
         try {
-            sk = new Socket("192.168.0.162", 10578);
+            sk = new Socket("192.168.0.13", 10578);
             dos = new DataOutputStream(sk.getOutputStream());
             dis = new DataInputStream(sk.getInputStream());
             System.out.println(id + " envía saludo");
