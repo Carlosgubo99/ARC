@@ -1,7 +1,6 @@
-package Cliente;
+package Servidor;
 
 
-import Cliente.ServidorHilo;
 import java.awt.HeadlessException;
 import java.io.*;
 import java.net.*;
