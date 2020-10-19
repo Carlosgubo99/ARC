@@ -28,7 +28,7 @@ public class Cliente extends JFrame {
         super("Cliente Chat");
         // Elementos de la ventana
         mensajesChat = new JTextArea();
-        mensajesChat.setEnabled(false); // El area de mensajes del chat no se debe de poder editar
+        mensajesChat.setEnabled(false); // El area de mensajes del chat no se debe de poder editar.
         mensajesChat.setLineWrap(true); // Las lineas se parten al llegar al ancho del textArea
         mensajesChat.setWrapStyleWord(true); // Las lineas se parten entre palabras (por los espacios blancos)
         JScrollPane scrollMensajesChat = new JScrollPane(mensajesChat);
