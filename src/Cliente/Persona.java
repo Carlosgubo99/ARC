@@ -64,7 +64,7 @@ class Persona extends Thread {
         iterActual = 0;
         
         // Bucle de S iteraciones que recibe mensajes del servidor
-        while (conectado && iterActual < nIteraciones) {
+        while (conectado && (iterActual < nIteraciones)) {
             try {
                 //Método de creación de coordenadas aleatorias
                 String coordenadas = GeneracionCoordenadas();
