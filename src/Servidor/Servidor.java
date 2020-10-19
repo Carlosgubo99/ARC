@@ -25,6 +25,7 @@ public class Servidor extends JFrame{
     public Servidor(){
         
         Ventana v = new Ventana();
+        v.setVisible(true);
         clientes = v.getN();
         vecinos = v.getV();
         iteraciones = v.getS();
@@ -40,7 +41,6 @@ public class Servidor extends JFrame{
         ArrayList<Mensajes> vectorMensajes = new ArrayList<>();
         ArrayList<Integer> grupos = new ArrayList<Integer>();
         DataOutputStream dataOutputStream;
-        Ventana vent = new Ventana();
         
         try {
             servidor = new ServerSocket(puerto);
