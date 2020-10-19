@@ -15,7 +15,8 @@ public class Servidor extends JFrame{
     static int ID_USUARIO = 1;
     
     private JTextArea mensajesChat;
-    private Socket socket;
+    private Socket sk;
+    private Ventana ventana;
             
     private static int clientes;
     private static int vecinos;
@@ -39,6 +40,7 @@ public class Servidor extends JFrame{
         ArrayList<Mensajes> vectorMensajes = new ArrayList<>();
         ArrayList<Integer> grupos = new ArrayList<Integer>();
         DataOutputStream dataOutputStream;
+        Ventana vent = new Ventana();
         
         try {
             servidor = new ServerSocket(puerto);
@@ -48,7 +50,7 @@ public class Servidor extends JFrame{
             
             //Envio datos principales a socket auxiliar para asignar en el proceso Clientes
             sk = servidor.accept();
-            dataOutputStream = new DataOutputStream(socket.getOutputStream());
+            dataOutputStream = new DataOutputStream(sk.getOutputStream());
             dataOutputStream.writeUTF(datos);
             //LinkedList Clientes;  IMPLEMENTACION DE LA LINKEDLIST, MISMO FUNC. QUE OBSERVER
             //Clientes = new LinkedList<ConexionCliente>(); IMPLEMENTACION DE LA LINKEDLIST, MISMO FUNC. QUE OBSERVER
@@ -65,17 +67,18 @@ public class Servidor extends JFrame{
                     grupos.add(grupo);
                 }
                
-                ConexionCliente cc = new ConexionCliente(socket, paqueteUsuario, vectorMensajes.get(grupo - 1));
+                ConexionCliente cc = new ConexionCliente(sk, paqueteUsuario, vectorMensajes.get(grupo - 1));
                 //Clientes.add(cc); IMPLEMENTACION DE LA LINKEDLIST, MISMO FUNC. QUE OBSERVER
                 //cc.setClientes(Clientes); IMPLEMENTACION DE LA LINKEDLIST, MISMO FUNC. QUE OBSERVER
                 cc.start();
+                
                 ID_USUARIO++;
             }
         } catch (IOException ex) {
             System.err.println("Error: " + ex.getMessage());
         } finally{
             try {
-                socket.close();
+                sk.close();
                 servidor.close();
                 System.out.println("SADAS");
             } catch (IOException ex) {
