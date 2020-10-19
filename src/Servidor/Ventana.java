@@ -33,7 +33,8 @@ public class Ventana extends JDialog{
      * 
      * @param padre Ventana padre
      */
-    public Ventana() {
+   public Ventana(JFrame padre) {
+        super(padre, "Parametros iniciales", true);
         
         this.setLayout(new GridLayout(4,4,8,8));
         
@@ -46,6 +47,7 @@ public class Ventana extends JDialog{
         tfIteraciones = new JTextField("3");
         
         JButton btAceptar = new JButton("Aceptar");
+        
         this.add(lbClientes);
         this.add(tfClientes);
         this.add(lbVecinos);

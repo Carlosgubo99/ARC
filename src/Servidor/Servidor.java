@@ -24,8 +24,7 @@ public class Servidor extends JFrame{
     
     public Servidor(){
         
-        Ventana v = new Ventana();
-        v.setVisible(true);
+        Ventana v = new Ventana(this);
         clientes = v.getN();
         vecinos = v.getV();
         iteraciones = v.getS();
