@@ -71,7 +71,7 @@ public class Cliente extends JFrame {
         
         // Se crea el socket auxiliar para recibir los datos principales
         try {
-            socketAux = new Socket(host, puerto);
+            socketAux = new Socket(host, puerto );
             DataInputStream inputStream = new DataInputStream(socketAux.getInputStream());
             String datos = inputStream.readUTF();
             
